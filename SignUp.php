@@ -1,28 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <title>Sign Up</title>
-
     <meta charset="UTF-8">
-    <meta name="author" content="Shimin Li"> 
-
-    <link rel="icon" type="image/png" href="/buddy.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp</title>
     <link rel="stylesheet" href="Login.css">
 </head>
-<body>
-<div class="main">
-	<h1 class="center">Create UserName and Password</h1>
 
-    <form action="LibraryLoginPage.php" method="POST">
-        <label for="Usrname"><strong>Username:</strong></label><br>
-        <input type="text" id="Usrname" name="Usrname" size="20" required><br><br>
-        <label for="Password"><strong>Password:</strong></label><br>
-        <textarea type="text" name="Psw" cols="2" rows="2"></textarea>
-        <br>
-        <div class="right">
-        <button type="submit">Login</button>
-        </div>
-    </form>
-</div>
+<body>
+    <div class="login-container">
+        <h2>Create Member Login</h2>
+
+        <form id="SignUpForm" action="password.php" method="post">
+            <div class="form-group">
+                <label for="usrname"><b>Username:</b></label>
+                <input type="text" id="usrname" name="usrname" required>
+            </div>
+            <div class="form-group">
+                <label for="psw"><b>Password:</b></label>
+                <input type="password" id="psw" name="psw">
+            </div>
+            <button type="submit">Create Account</button>
+        </form>
+
+        <a href="LibraryLoginPage.html" class="login-link">Already have an account? Log in here</a>
+        <div id="errorMessage" class="error-message"></div>
+    </div>
+    <script src="login.js"></script>
 </body>
+
 </html>
