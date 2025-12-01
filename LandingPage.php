@@ -20,7 +20,7 @@ $availableBooks = $pdo->query("
     FROM Book b
     INNER JOIN Copy c ON b.book_id = c.book_id
     WHERE c.status = 'available'
-    LIMIT 8
+    LIMIT 20
 ")->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
@@ -33,25 +33,14 @@ $availableBooks = $pdo->query("
 </head>
 <body>
     <header>
-        <h1>📚 Library Management System</h1>
+        <h1> Library Management System</h1>
         <nav>
             <a href="BookManagement.php">Books</a>
             <a href="MemberManagement.php">Members</a>
-            <a href="LoansManagement.php">Loans</a>
-            <a href="locationsManagement.php">Locations</a>
             <a href="logout.php">Logout</a>
         </nav>
     </header>
-
     <main>
-        <!-- Stats Overview -->
-        <section class="stats">
-            <div class="stat-card">📚 Total Books: <strong><?php echo $books; ?></strong></div>
-            <div class="stat-card">👥 Members: <strong><?php echo $members; ?></strong></div>
-            <div class="stat-card">📅 Active Loans: <strong><?php echo $loans; ?></strong></div>
-            <div class="stat-card">📍 Locations: <strong><?php echo $locations; ?></strong></div>
-        </section>
-
         <!-- Available Books Section -->
         <section class="content">
             <h2>Available Books</h2>
@@ -61,8 +50,6 @@ $availableBooks = $pdo->query("
                         <div class="book-card">
                             <h3><?php echo htmlspecialchars($book['title']); ?></h3>
                             <p class="author">by <?php echo htmlspecialchars($book['author']); ?></p>
-                            <!-- Link to borrow (you can later make this a real form) -->
-                            <a href="borrow.php?book_id=<?php echo $book['book_id']; ?>" class="btn">Borrow</a>
                         </div>
                     <?php endforeach; ?>
                 <?php else: ?>
@@ -73,3 +60,4 @@ $availableBooks = $pdo->query("
     </main>
 </body>
 </html>
+
