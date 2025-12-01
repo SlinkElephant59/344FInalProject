@@ -1,0 +1,41 @@
+Project Proposal: Online Library Management System
+
+********Team Members********
+Godwin Wangwa (Computer Science Student, Winona State University)
+Ethan Larson (Computer Science Student, Winona State University)
+
+*******Project Overview********
+The Online Library Management System is a comprehensive full-stack web application designed to streamline library operations. This system will provide a centralized platform for managing library resources, user accounts, and borrowing transactions. The application will feature a secure login system, allowing different user types to access appropriate functionality.
+
+___________________Major Functions and Features__________________
+
+**Frontend Features:**
+- Responsive user interface using HTML, CSS, and JavaScript
+- User authentication system with secure login page
+- Dashboard for different user roles (admin, librarian, members)
+- Book catalog with search and filtering capabilities
+- User-friendly forms for book check-in/check-out
+- Real-time status updates for book availability
+
+**Backend Features:**
+- PHP-based server-side processing
+- User authentication and session management
+- Database operations for storing and retrieving library data
+- CRUD operations for books, users, and transactions
+- Security measures for data protection
+-Json or Ajax not sure yet
+
+**Database Components:**
+- User accounts table (with different access levels)
+- Books catalog with metadata
+- Borrowing/returning transaction logs
+- Library member information
+
+**Technical Implementation**
+- Frontend: HTML5, CSS3, JavaScript
+- Backend: PHP
+- Database: MySQL
+- Architecture: Full-stack implementation with secure authentication
+
+This project will demonstrate full-stack development skills with both client-side and server-side components.
+The manual will be added at the end of the project in this file.
