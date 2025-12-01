@@ -5,7 +5,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     exit();
 }
 
-require_once 'db.php';
+require_once 'DataBaseSQL.php';
 
 // Handle book deletion
 if (isset($_GET['delete'])) {
@@ -80,4 +80,5 @@ $books = $stmt->fetchAll();
     </main>
 </body>
 </html>
+
 
