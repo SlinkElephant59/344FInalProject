@@ -39,7 +39,7 @@ $books = $stmt->fetchAll();
 </head>
 <body>
     <header>
-        <h1>📚 Books</h1>
+        <h1> Books</h1>
         <nav>
             <a href="landingPage.php">Dashboard</a>
             <a href="MemberManagement.php">Members</a>
@@ -71,7 +71,7 @@ $books = $stmt->fetchAll();
                     <td><?php echo $book['genres'] ?: '—'; ?></td>
                     <td>
                         <a href="?delete=<?php echo $book['book_id']; ?>" 
-                           onclick="return confirm('Delete this book?')">🗑️</a>
+                           onclick="return confirm('Delete this book?')">Delete</a>
                     </td>
                 </tr>
                 <?php endforeach; ?>
@@ -80,3 +80,4 @@ $books = $stmt->fetchAll();
     </main>
 </body>
 </html>
+
