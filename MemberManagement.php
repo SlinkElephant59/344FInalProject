@@ -1,12 +1,11 @@
 <?php
-require_once 'db.php';
-
-// Handle member deletion
-if (isset($_GET['delete'])) {
-    $pdo->prepare("DELETE FROM Members WHERE member_id = ?")->execute([$_GET['delete']]);
-    header("Location: members.php");
-    exit;
+session_start();
+if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+    header("Location: login.html");
+    exit();
 }
+
+require_once 'db.php';
 
 $members = $pdo->query("
     SELECT *, 
@@ -21,15 +20,15 @@ $members = $pdo->query("
 <head>
     <meta charset="UTF-8">
     <title>Members</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="library.css">
 </head>
 <body>
     <header>
-        <h1>👥 Members</h1>
+        <h1> MEMBERS</h1>
         <nav>
-            <a href="index.php">Dashboard</a>
-            <a href="books.php">Books</a>
-            <a href="loans.php">Loans</a>
+            <a href="Landong.php">Dashboard</a>
+            <a href="bOOKmANAGEMENT.php">Books</a>
+
         </nav>
     </header>
     <main>
@@ -37,6 +36,7 @@ $members = $pdo->query("
             <thead>
                 <tr>
                     <th>ID</th>
+                    
                     <th>Name</th>
                     <th>Email</th>
                     <th>Join Date</th>
@@ -53,8 +53,6 @@ $members = $pdo->query("
                     <td><?php echo $m['join_date']; ?></td>
                     <td><?php echo $m['status_text']; ?></td>
                     <td>
-                        <a href="?delete=<?php echo $m['member_id']; ?>" 
-                           onclick="return confirm('Delete member?')">🗑️</a>
                     </td>
                 </tr>
                 <?php endforeach; ?>
@@ -62,4 +60,5 @@ $members = $pdo->query("
         </table>
     </main>
 </body>
+
 </html>
