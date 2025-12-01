@@ -1,10 +1,16 @@
 <?php
+session_start();
+if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+    header("Location: login.html");
+    exit();
+}
+
 require_once 'db.php';
 
 // Handle book deletion
 if (isset($_GET['delete'])) {
     $pdo->prepare("DELETE FROM Book WHERE book_id = ?")->execute([$_GET['delete']]);
-    header("Location: books.php");
+    header("Location: BookManagement.php");
     exit;
 }
 
@@ -29,15 +35,16 @@ $books = $stmt->fetchAll();
 <head>
     <meta charset="UTF-8">
     <title>Books</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="library.css">
 </head>
 <body>
     <header>
         <h1>📚 Books</h1>
         <nav>
-            <a href="index.php">Dashboard</a>
-            <a href="members.php">Members</a>
-            <a href="loans.php">Loans</a>
+            <a href="landingPage.php">Dashboard</a>
+            <a href="MemberManagement.php">Members</a>
+            <a href="loanManagement.php">Loans</a>
+            <a href="logout.php">Logout</a>
         </nav>
     </header>
     <main>
